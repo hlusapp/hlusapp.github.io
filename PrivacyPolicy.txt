@@ -1,0 +1,84 @@
+Privacy Policy
+BT AutoPlay
+Effective Date: May 2026
+
+1. Introduction
+Welcome to BT AutoPlay ("the App", "we", "our"). This Privacy Policy explains what information we collect, how we use it, and what choices you have when you use our application. By installing or using the App, you agree to the practices described in this policy.
+
+2. Information We Collect
+2.1 Information You Provide
+The App does not require you to create an account or provide personal information such as your name, email address, or payment details directly to us. Any in-app purchase or subscription is processed entirely through Google Play, and we do not receive or store your payment card data.
+
+2.2 Information Collected Automatically
+To deliver its core functionality, the App may access the following data on your device:
+•	Bluetooth device names and MAC addresses — to identify which paired device triggered playback.
+•	Media session state (playing / paused / stopped) — via Android MediaSession API to resume playback correctly.
+•	Notification access — required by Android to read active media sessions; the App does not read the content of your personal notifications.
+•	Accessibility Service data — used exclusively to interact with the Spotify application UI when the Spotify integration is enabled. No screen content is recorded or transmitted.
+
+2.3 Log Data
+The App maintains an internal in-memory log of operational events (e.g., Bluetooth connection events, playback actions, errors). This log is stored only on your device, is never transmitted to any server, and is cleared when the App is closed or when you press the "Clear" button in the Logs screen.
+
+
+3. How We Use the Information
+All data accessed by the App is used solely to provide and improve the App’s functionality:
+•	Detecting Bluetooth device connections and disconnections to trigger automatic music playback.
+•	Resuming or starting the correct streaming service (YouTube Music, Spotify, or Poweramp) based on your settings.
+•	Displaying status notifications about the current Bluetooth device and playback state.
+•	Diagnosing errors through the in-app log viewer.
+We do not use any collected information for advertising, analytics platforms, or any purpose beyond the App’s stated features.
+
+
+4. Data Sharing and Third Parties
+We do not sell, rent, or share your data with third parties. The App communicates only with the streaming applications installed on your device (YouTube Music, Spotify, Poweramp) via standard Android APIs. No data is sent to external servers owned or operated by us.
+
+4.1 Google Play Billing
+Purchases and subscription management are handled by Google Play. When you complete a purchase, Google Play processes your payment and notifies the App that a license has been granted. We receive only a confirmation token — no payment card details, billing address, or personally identifiable information is shared with us by Google.
+Google Play’s privacy practices are governed by Google’s Privacy Policy, available at https://policies.google.com/privacy.
+
+
+5. Trial Period and Paid Access
+5.1 Free Trial
+The App offers a 7-day free trial period. During the trial, all features of the App are fully available without charge. No payment information is required to start the trial. The trial begins on the date of first installation and expires automatically after 7 calendar days.
+
+5.2 Full Access After Purchase
+After the trial period expires, continued use of the App requires a one-time purchase through Google Play. Upon successful payment, the App is permanently and fully unlocked for the Google account that completed the purchase. No recurring subscription or additional fees apply unless explicitly stated in the Google Play Store listing.
+
+5.3 License Verification
+To verify whether a valid license exists, the App may query the Google Play Licensing API. This query is performed locally between your device and Google’s servers and does not involve our own servers. The result (licensed / not licensed) is cached on the device to allow offline use.
+
+
+6. Permissions Explained
+The App requests the following Android permissions and uses them only as described:
+•	BLUETOOTH / BLUETOOTH_CONNECT / BLUETOOTH_SCAN — to detect paired Bluetooth devices and monitor connection events.
+•	FOREGROUND_SERVICE — to keep the monitoring service running reliably in the background.
+•	BIND_NOTIFICATION_LISTENER_SERVICE — required by Android to access active MediaSession data. Personal notification content is not read.
+•	BIND_ACCESSIBILITY_SERVICE — used only when Spotify integration is enabled, to navigate Spotify’s UI. No screen content is stored or transmitted.
+•	RECEIVE_BOOT_COMPLETED — to restart the background service automatically after device reboot, if the user has enabled this option.
+•	SYSTEM_ALERT_WINDOW — to launch streaming apps from the background on Android 14+ where background activity launch restrictions apply.
+
+
+7. Data Retention and Deletion
+The App stores your preferences (selected Bluetooth device, chosen streaming service, playlist URLs, feature switches) in Android SharedPreferences on your device. This data is never uploaded to any server.
+To delete all App data, you can use the standard Android option: Settings → Apps → BT AutoPlay → Storage → Clear Data. Uninstalling the App also removes all locally stored preferences and logs.
+
+
+8. Children’s Privacy
+The App is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information through the App, please contact us and we will take appropriate steps to remove such information.
+
+
+9. Security
+Because the App does not transmit personal data to external servers, the primary security boundary is your device itself. We recommend keeping your device and Android OS up to date and protecting your device with a screen lock. The internal log is stored only in memory and is not written to persistent storage.
+
+
+10. Changes to This Privacy Policy
+We may update this Privacy Policy from time to time. When we do, we will revise the Effective Date at the top of this document and, where required by applicable law, notify you through the App or the Google Play Store listing. Continued use of the App after changes are posted constitutes your acceptance of the updated policy.
+
+
+11. Contact Us
+If you have any questions, concerns, or requests regarding this Privacy Policy or the App’s data practices, please contact us at:
+
+Developer: BT AutoPlay
+Email: support@btautoplay.app
+
+This policy applies to the Android application "BT AutoPlay" distributed via Google Play.
