@@ -17,6 +17,7 @@ To deliver its core functionality, the App may access the following data on your
 - Notification access — required by Android to read active media sessions; the App does not read the content of your personal notifications.
 - Playlist or video URL you enter — if you provide a YouTube or YouTube Music playlist/video link in the App's settings, that URL is sent to YouTube's servers solely to look up its title for display in the App (see Section 4).
 - Device identifier (hashed) — a one-way hash (SHA-256) derived from your device's Android ID, combined with an app-specific value before hashing. This hash cannot be reversed to recover your original Android ID. It is sent to our own trial-verification server as described in Section 4.2 and Section 5.3.
+- Daily activity ping (hashed) — once per day, the App sends the same hashed device identifier, together with a flag indicating the App was active that day, to our trial-verification server. This is used solely to count the approximate number of active devices, in aggregate, for internal statistics (see Section 4.2). No information about which features you used, how often, or your Bluetooth/playback activity is included in this ping.
 
 #### 2.3 Log Data
 The App maintains a local diagnostic log of operational events (e.g., Bluetooth connection events, playback actions, errors). The log is stored only on your device, inside the App's private storage, and is never transmitted to any server. Entries older than 7 days are discarded automatically; within that window, the log persists across app restarts and updates so recent activity remains available for troubleshooting. You can erase it at any time using the "Clear" button on the Logs screen, or by clearing the App's data in Android Settings.
@@ -29,8 +30,9 @@ All data accessed by the App is used solely to provide and improve the App's fun
 - Displaying status notifications about the current Bluetooth device and playback state.
 - Diagnosing errors through the in-app log viewer.
 - Determining the correct start date of your free trial period and preventing repeated free trials on the same device through reinstallation, using the hashed device identifier described in Section 2.2.
+- Counting the approximate number of active devices, in aggregate, for internal product statistics, using the daily activity ping described in Section 2.2.
 
-We do not use any collected information for advertising or third-party analytics platforms, and we do not use it for any purpose beyond the App's stated features described above.
+We do not use any collected information for advertising or third-party analytics platforms. The only exception is the daily active-device count described in Section 4.2, which uses aggregate, non-identifying data on our own server and is not shared with any third party. We do not use collected information for any purpose beyond the App's stated features described above.
 
 ### 4. Data Sharing and Third Parties
 We do not sell or rent your data to third parties. The App communicates with the streaming applications installed on your device (YouTube Music, Spotify, Poweramp) via standard Android APIs.
@@ -45,8 +47,9 @@ The App sends the hashed device identifier described in Section 2.2, together wi
 - Record the date your free trial period first began on this device.
 - Recognize the same device if the App is later uninstalled and reinstalled, so the free trial is not repeatedly restarted.
 - Record whether full access has been purchased on this device, as an additional safeguard alongside the local purchase record from Google Play (Section 5.3).
+- Count the approximate number of active devices, in aggregate, for internal product statistics. Once per day, the App sends the hashed device identifier together with a timestamp and a flag indicating the App was active that day. This data is not used to track individual behavior within the App, is not shared with any third party, and is not used for advertising.
 
-This connection is encrypted in transit (HTTPS/TLS). No Bluetooth data, media session data, playlist URLs, log data, or any other information described elsewhere in this policy is sent to this server — only the hashed device identifier, a timestamp, and purchase status. We do not sell, rent, or share this data with any third party. It is retained for as long as the App remains available for trial or purchase verification purposes, or until you contact us to request its deletion (Section 7).
+This connection is encrypted in transit (HTTPS/TLS). No Bluetooth data, media session data, playlist URLs, log data, or any other information described elsewhere in this policy is sent to this server — only the hashed device identifier, a timestamp, daily activity status, and purchase status. We do not sell, rent, or share this data with any third party. It is retained for as long as the App remains available for trial or purchase verification purposes, or until you contact us to request its deletion (Section 7).
 
 #### 4.3 Google Play Billing
 Purchases are handled by Google Play. When you complete a purchase, Google Play processes your payment and the App confirms it through the Google Play Billing Library. We receive only a purchase confirmation — no payment card details, billing address, or personally identifiable information is shared with us by Google.
@@ -79,7 +82,7 @@ The App requests the following Android permissions and uses them only as describ
 ### 7. Data Retention and Deletion
 The App stores your preferences (selected Bluetooth devices, chosen streaming service, playlist URLs, feature switches) in Android SharedPreferences on your device. This data is never uploaded to any server.
 
-The hashed device identifier, trial start timestamp, and purchase status described in Section 4.2 are stored on our trial-verification server, separately from your device. To request deletion of this record, contact us using the details in Section 11 and provide enough information for us to identify the record (we cannot look it up by name or email, since none is collected — we will provide instructions for retrieving your device's identifier if needed).
+The hashed device identifier, trial start timestamp, daily activity status, and purchase status described in Section 4.2 are stored on our trial-verification server, separately from your device. To request deletion of this record, contact us using the details in Section 11 and provide enough information for us to identify the record (we cannot look it up by name or email, since none is collected — we will provide instructions for retrieving your device's identifier if needed).
 
 To delete all App data stored on your device, you can use the standard Android option: Settings → Apps → BT AutoPlay → Storage → Clear Data. Uninstalling the App also removes all locally stored preferences and logs, but does not remove the record on our trial-verification server, so that the trial period is correctly recognized if you reinstall the App.
 
@@ -87,7 +90,7 @@ To delete all App data stored on your device, you can use the standard Android o
 The App is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided personal information through the App, please contact us and we will take appropriate steps to remove such information.
 
 ### 9. Security
-The hashed device identifier and trial/purchase status described in Section 4.2 are transmitted to our server over an encrypted (HTTPS/TLS) connection. This data cannot be used on its own to identify you personally, as it is a one-way hash and is not linked to any name, email address, or account. All other data described in this policy remains only on your device, and your device itself is the primary security boundary for that data. We recommend keeping your device and Android OS up to date and protecting your device with a screen lock. As described in Section 2.3, the diagnostic log is stored locally in a file within the App's private storage and is limited to the last 7 days of activity.
+The hashed device identifier, trial/purchase status, and daily activity status described in Section 4.2 are transmitted to our server over an encrypted (HTTPS/TLS) connection. This data cannot be used on its own to identify you personally, as it is a one-way hash and is not linked to any name, email address, or account. All other data described in this policy remains only on your device, and your device itself is the primary security boundary for that data. We recommend keeping your device and Android OS up to date and protecting your device with a screen lock. As described in Section 2.3, the diagnostic log is stored locally in a file within the App's private storage and is limited to the last 7 days of activity.
 
 ### 10. Changes to This Privacy Policy
 We may update this Privacy Policy from time to time. When we do, we will revise the Effective Date at the top of this document and, where required by applicable law, notify you through the App or the Google Play Store listing. Continued use of the App after changes are posted constitutes your acceptance of the updated policy.
